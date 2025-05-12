@@ -30,11 +30,11 @@
 
 <!-- This is the 'pom.xml' file. This XML file allows us to manage all the aspects related to a Maven
  project. This file describes: how the project is going to be built and deployed, what's the 'group_id'
- and 'artifact_id' of the project, what's the targeted Java version for the project and all the internal
- and external dependencies needed for the project.
+ and 'artifact_id' of the project, what's the source & target Java version for the project, and all
+ the internal and external dependencies needed for the project.
 -->
 
 <!-- POM stands for 'Project Object Model' referring to its objective to describe all the aspects of
-the Maven project. There is a similarity with the term DOM (Document Object Model) from the web
-environment.
+a Maven project. There is a similarity with the term DOM (Document Object Model), from the web
+environment. In both cases, they have to do with the structure of the project and how it should be addressed.
 -->

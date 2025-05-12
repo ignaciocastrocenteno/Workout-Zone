@@ -8,6 +8,18 @@
     <artifactId>Workout-Zone</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- We use the '<dependencies></dependencies>' tag to specify all the internal or external dependencies
+     needed for the project, in order to work correctly. According to the good practices, the dependencies
+     section is usually below the 'Version' tag.-->
+    <dependencies>
+        <!-- MySQL's dependency, to manage the connection and interactions with the database. -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
+        </dependency>
+    </dependencies>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -15,3 +27,14 @@
     </properties>
     
 </project>
+
+<!-- This is the 'pom.xml' file. This XML file allows us to manage all the aspects related to a Maven
+ project. This file describes: how the project is going to be built and deployed, what's the 'group_id'
+ and 'artifact_id' of the project, what's the targeted Java version for the project and all the internal
+ and external dependencies needed for the project.
+-->
+
+<!-- POM stands for 'Project Object Model' referring to its objective to describe all the aspects of
+the Maven project. There is a similarity with the term DOM (Document Object Model) from the web
+environment.
+-->

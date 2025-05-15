@@ -86,8 +86,10 @@ public class Customer {
     }
 
     /*
-         As the instances of this class are expected to be stored within ordered data structures, it's a good practice
-         to override the methods equals() and hashCode(), to speed up the searching and sorting of this object types.
+         As the instances of this class are expected to be stored within ordered data structures once recovered, it's a
+         good practice to override the methods equals() and hashCode() to speed up the insertion, searching and
+         sorting of this object types. These advantages come automatically while overriding the methods, we don't have
+         to do something more.
      */
     @Override
     public boolean equals(Object o) {
@@ -100,14 +102,25 @@ public class Customer {
     }
 
     /*
-        Recapping how does the hashCode() method work: This method generates an integer value that's unique and that's
-        going to be assigned individually to each instance of a given class (in this case, a hashCode is going to be
-        set for every 'Customer' object that's going to be created during the execution). This hashCode is the
-        responsible to speed the searching and sorting of the objects within ordered data-structures. Just by overriding
-        these methods, we automatically take the advantage of this ease, without having to do something more.
+        Recapping how does the hashCode() method work: This method generates an integer value that's going to be unique
+        during runtime and cannot be repeated (and that's going to operate like a hash). This integer number will be
+        assigned individually to each instance of a given class (in this case, a hashCode is going to be set for every
+        'Customer' object that's going to be created during the execution). This hashCode is the responsible to speed
+        the insertion, searching and sorting of the objects within ordered data-structures, because we can use this
+        hash to identify univocally each of those objects, instead of considering the memory address as the first option.
      */
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, membershipType);
     }
+
+    /*
+        CONCLUSION: It's not necessary at all, to create the domain class that we need to operate inside the project,
+        because we can perfectly bring the information the database directly onto the app.
+        However, it's understood as good practice to represent all the existing SQL tables within the project, just
+        as a way to check that everything stored in the database is usable information from the Java application.
+
+        Each SQL table should be represented as a different class in Java, being each column a specific attribute.
+        This is what the ORMs/ODMs do to map the SQL tables to entities of the programming language.
+     */
 }

@@ -3,7 +3,7 @@ package domain;
 import java.util.Objects;
 
 public class Customer {
-    // All the attributes defined in any domain class, have to match the columns of the corresponding SQL table
+    // All the attributes defined in any domain class, have to match the columns of the corresponding SQL related table
     private int id;
     private String firstName;
     private String lastName;
@@ -14,19 +14,22 @@ public class Customer {
 
     }
 
-    // Deleting a customer from the database - we only need to know the ID to concrete this operation
+    // Constructor to search by ID or to delete a customer from the database - we only need to know the ID to concrete these operations
     public Customer(int id) {
         setId(id);
     }
 
-    // Creating a new customer in the database - we'll need all the fields completed in order to create a new register.
+    // Constructor to create a new customer in the database - we'll need all the arguments in order to create a new register.
     public Customer(String firstName, String lastName, MEMBERSHIP_TYPE membershipType) {
         setFirstName(firstName);
         setLastName(lastName);
         setMembershipType(membershipType);
     }
 
-    // Recovering all the existing customer registers in the database
+    /*
+        Constructor to recover all the existing customer registers from the database - here we reference the full constructor
+        implementation but now considering the ID integer coming from the DB.
+     */
     public Customer(int id, String firstName, String lastName, MEMBERSHIP_TYPE membershipType) {
         // Keeping the code dry, using the already existing constructors as the top declaration
         this(firstName, lastName, membershipType);
@@ -50,6 +53,7 @@ public class Customer {
             throw new IllegalArgumentException("The first name field is invalid!");
         }
         this.firstName = firstName;
+        System.out.println("The firstName field was updated successfully!");
     }
 
     public String getLastName() {
@@ -60,7 +64,7 @@ public class Customer {
         if(lastName.isBlank()) {
             throw new IllegalArgumentException("The last name field is invalid!");
         }
-        this.lastName = lastName;
+        this.lastName = lastName;System.out.println("The lastName field was updated successfully!");
     }
 
     public MEMBERSHIP_TYPE getMembershipType() {
@@ -68,9 +72,10 @@ public class Customer {
     }
 
     public void setMembershipType(MEMBERSHIP_TYPE membershipType) {
-        if(membershipType == null) {
-            throw new IllegalArgumentException("The membership type cannot be null!");
-        }
+        // The 'membershipType' field can be null, meaning the customer doesn't count with an active membership status.
+    //        if(membershipType == null) {
+    //            throw new IllegalArgumentException("The membership type cannot be null!");
+    //        }
         this.membershipType = membershipType;
     }
 

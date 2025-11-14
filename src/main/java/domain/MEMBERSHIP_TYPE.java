@@ -5,8 +5,10 @@ public enum MEMBERSHIP_TYPE {
             "Restricted to the specific gym location where the plan was bought", 100),
     PLATINUM("The Platinum Pack", 42.99, "Monthly/Quarterly",
             "Restricted to the gym locations, available within the residency state", 200),
-    DIAMOND("The Diamond Pack", 57.0, "Monthly/Quarterly/Annual",
-            "Full access to all existing gym locations in the country", 300);
+    DIAMOND("The Diamond Pack", 57.00, "Monthly/Quarterly/Annual",
+            "Full access to all existing gym locations in the country", 300),
+    GLOBAL("The Global Pack", 200.00, "Monthly/Quarterly/Annual",
+                    "Full access to all existing gym locations worldwide", 400);
 
     private String name;
     private double price;

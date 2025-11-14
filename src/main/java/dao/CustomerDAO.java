@@ -270,7 +270,7 @@ public class CustomerDAO implements IDAO<Customer>{
         return result;
     }
 
-    public static void main(String[] args) {
+    private static void testingCustomerDAO(String[] args) {
         // Testing the CRUD methods for the 'Customer' entity
             // We can either use the concrete class or its abstraction throw the interface (which is always the recommend approach)
             IDAO<Customer> customerCRUD = new CustomerDAO();  // Whether the 'CustomerDAO' class specifics change, we still respect the interface.

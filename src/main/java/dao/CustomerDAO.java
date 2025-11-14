@@ -113,6 +113,7 @@ public class CustomerDAO implements IDAO<Customer>{
                     case 100 -> membershipTypeRecovered = MEMBERSHIP_TYPE.GOLD;
                     case 200 -> membershipTypeRecovered = MEMBERSHIP_TYPE.PLATINUM;
                     case 300 -> membershipTypeRecovered = MEMBERSHIP_TYPE.DIAMOND;
+                    case 400 -> membershipTypeRecovered = MEMBERSHIP_TYPE.GLOBAL;
                 }
                 customer.setMembershipType(membershipTypeRecovered);
 
@@ -184,6 +185,7 @@ public class CustomerDAO implements IDAO<Customer>{
                     case 100 -> registerToSearch.setMembershipType(MEMBERSHIP_TYPE.GOLD);
                     case 200 -> registerToSearch.setMembershipType(MEMBERSHIP_TYPE.PLATINUM);
                     case 300 -> registerToSearch.setMembershipType(MEMBERSHIP_TYPE.DIAMOND);
+                    case 400 -> registerToSearch.setMembershipType(MEMBERSHIP_TYPE.GLOBAL);
                     /*
                         Just as an example, if there wouldn't be a defined MEMBERSHIP_TYPE attribute value, the value
                         to be stored it's going to be defaulted to 'null'. It would remain as if the user wouldn't have

@@ -2,6 +2,8 @@ package dao;
 
 import java.util.List;
 
+import domain.Customer;
+
 /**
  * This interface IDAO (Common Interface for 'Data Access Objects') was created to simplify and generalize the behavior
  * of all the DAO pattern classes to be implemented in this project. The main idea is to reuse the written code, by
@@ -29,7 +31,7 @@ public interface IDAO<E> {
          * @param registerToSearch
          * @return
          */
-        boolean searchByID(E registerToSearch);
+        Customer searchByID(E registerToSearch);
 
         /**
          * Updates all the information related to an existing register on the database.

@@ -146,7 +146,7 @@ public class CustomerDAO implements IDAO<Customer>{
     }
 
     @Override
-    public boolean searchByID(Customer registerToSearch) {
+    public Customer searchByID(Customer registerToSearch) {
         // First, we have to get the ID needed for the search (expected as an argument)
         int registerID = registerToSearch.getId();
 
@@ -204,7 +204,7 @@ public class CustomerDAO implements IDAO<Customer>{
             System.err.println(searchByIDException.getMessage());
         }
 
-        return result;
+        return registerToSearch;
     }
 
     @Override

@@ -27,8 +27,9 @@ public class Customer {
     }
 
     /*
-        Constructor to recover all the existing customer registers from the database - here we reference the full constructor
-        implementation but now considering the ID integer coming from the DB.
+        Constructor to search all the customer registers from the database or to perform a full update - here
+        we reference the 3 params constructor, but now additionally considering the ID coming from the DB. We set it up,
+        right after the first constructor call.
      */
     public Customer(int id, String firstName, String lastName, MEMBERSHIP_TYPE membershipType) {
         // Keeping the code dry, using the already existing constructors as the top declaration
@@ -41,6 +42,9 @@ public class Customer {
     }
 
     public void setId(int id) {
+        if(id <= 0){
+            throw new IllegalArgumentException("The ID cannot be a negative number or zero!");
+        }
         this.id = id;
     }
 
@@ -50,10 +54,9 @@ public class Customer {
 
     public void setFirstName(String firstName) {
         if(firstName.isBlank()) {
-            throw new IllegalArgumentException("The first name field is invalid!");
+            throw new IllegalArgumentException("The firstname field is invalid!");
         }
         this.firstName = firstName;
-        System.out.println("The firstName field was updated successfully!");
     }
 
     public String getLastName() {
@@ -62,9 +65,9 @@ public class Customer {
 
     public void setLastName(String lastName) {
         if(lastName.isBlank()) {
-            throw new IllegalArgumentException("The last name field is invalid!");
+            throw new IllegalArgumentException("The lastname field is invalid!");
         }
-        this.lastName = lastName;System.out.println("The lastName field was updated successfully!");
+        this.lastName = lastName;
     }
 
     public MEMBERSHIP_TYPE getMembershipType() {

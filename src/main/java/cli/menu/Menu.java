@@ -13,7 +13,7 @@ import domain.TYPE_OF_CURRENCY;
 import java.util.List;
 import java.util.Scanner;
 
-public class Menu {
+public abstract class Menu {
     // CLI Warnings
     public final static String MENU_WARNING_RE_ENTER_FIRSTNAME = "Re-enter the firstname: ";
     public final static String MENU_WARNING_RE_ENTER_LASTNAME = "Re-enter the lastname: ";

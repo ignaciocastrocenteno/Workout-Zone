@@ -1,0 +1,178 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLPackage</id><coordinates><x>204</x><y>36</y><w>894</w><h>408</h></coordinates><panel_attributes>bg=green
+Package - cli</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>372</x><y>66</y><w>492</w><h>366</h></coordinates><panel_attributes>Package - cli.menu</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>888</x><y>126</y><w>204</w><h>264</h></coordinates><panel_attributes>Package - cli.auth</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>216</x><y>228</y><w>144</w><h>78</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+WorkoutZone
+--
+_- SOFTWARE_VERSION: String = 1.0_
+_- END_OF_DATA: boolean = false_
+--
+_- app()_
+_+ main(String[] args)_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>108</y><w>210</w><h>312</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+MainMenu
+--
+_+ MENU_OPTION_SEARCH_ALL: String_
+_+ MENU_OPTION_SEARCH_BY_ID: String_
+_+ MENU_OPTION_CREATE_REGISTER: String_
+_+ MENU_OPTION_FULL_UPDATE: String_
+_+ MENU_OPTION_ID_PROMPT: String_
+_+ MENU_OPTION_PARTIAL_UPDATE: String_
+_+ MENU_OPTION_DELETE_REGISTER: String_
+_+ MENU_OPTION_EXIT_SYSTEM: String_
+_+ MENU_ENTER_AN_OPTION: String_
+_+ MENU_DIVIDER_ROW: String_
+_+ MENU_SEARCH_BY_ID_PROMPT: String_
+_+ MENU_DELETE_BY_ID_PROMPT: String_
+_+ MENU_CUSTOMER_DELETION_TEXT: String_
+_+ MENU_FIRSTNAME_PROMPT: String_
+_+ MENU_LASTNAME_PROMPT: String_
+_+ MENU_PLAN_CHOSEN_PROMPT: String_
+_+ MENU_CONFIRM_INFORMATION_ANNOUNCE: String_
+_+ MENU_CONFIRM_CREATION_PROMPT: String_
+_+ MENU_CONFIRM_UPDATE_PROMPT: String_
+_+ MENU_CONFIRM_DELETION_PROMPT: String_
+_+ MENU_CUSTOMER_FOUND_ANNOUNCE: String_
+_+ MENU_PERFORM_ACTION_ANNOUNCE: String_
+_+ MENU_RETRIEVING_INFORMATION_ANNOUNCE: String_
+_+ MENU_REGISTER_NOT_FOUND_ANNOUNCE: String_
+_+ MENU_OPERATION_SUCCESS_ANNOUNCE: String_
+_+ MENU_OPERATION_FAILURE_ANNOUNCE: String_
+_+ MENU_OPERATION_CANCELLED: String_
+_+ MENU_UNIMPLEMENTED_FUNCTION_ANNOUNCE: String_
+_+ MENU_UNIMPLEMENTED_FUNCTION_ANNOUNCE: String_
+
+--
+_+ displayMainMenu(String): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>900</x><y>222</y><w>180</w><h>78</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+Authentication
+--
+
+--
+_+ validateID(Scanner, int): void_
+_+ validateFullname(Scanner, String, String): void_
+_+ validateBooleanPrompt(Scanner, char): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>642</x><y>324</y><w>210</w><h>72</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+MembershipMenu
+--
+_+ MEMBERSHIP_MENU_ENTER_AN_OPTION: String_
+--
+_+ displayMembershipsMenu(Scanner): MEMBERSHIP_TYPE_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>114</y><w>222</w><h>126</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+/Menu/
+--
+_+ MENU_WARNING_RE_ENTER_FIRSTNAME: String_
+_+ MENU_WARNING_RE_ENTER_LASTNAME: String_
+_+ ERROR_DISPLAY_MENU: String_
+_+ ERROR_INVALID_ID: String_
+_+ ERROR_INVALID_FULLNAME: String_
+_+ ERROR_INVALID_BOOLEAN_OPERATION: String_
+_+ ERROR_INVALID_MENU_OPTION: String_
+--
+_+ executeOption(Scanner, CustomerDAO): boolean_
+_+ displayCheckoutMenu(String, String, MEMBERSHIP_TYPE): void_
+_+ displayGoodbyeMessage(): void_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>234</y><w>126</w><h>78</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;110;10;110</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>210</x><y>498</y><w>318</w><h>222</h></coordinates><panel_attributes>bg=yellow
+Package - cli,dao</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>546</x><y>504</y><w>570</w><h>288</h></coordinates><panel_attributes>bg=yellow
+Package - cli.domain</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>354</x><y>552</y><w>162</w><h>114</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+CustomerDAO
+--
+
+--
++ createRegister(Customer): boolean
++ searchAll(): List&lt;Customer&gt;
++ searchById(Customer): Customer
++ updateFullRegister(Customer): boolean
++ updatePartialRegister(Customer): boolean
++ deleteRegister(Customer): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>222</x><y>552</y><w>126</w><h>114</h></coordinates><panel_attributes>/&lt;&lt;interface&gt;&gt;/
+IDAO&lt;E&gt;
+--
++ createRegister(E): boolean
++ searchAll(): List&lt;E&gt;
++ searchById(E): E
++ updateFullRegister(E): boolean
++ updatePartialRegister(E): boolean
++ deleteRegister(E): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>558</x><y>534</y><w>180</w><h>216</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+Customer
+--
+- id: int
+- firstName: String
+- lastName: String
+--
++ Customer()
++ Customer(int)
++ Customer(String, String, MEMBERSHIP_TYPE)
++ Customer(int, String, String, MEMBERSHIP_TYPE)
++ setId(int): void
++ setFirstName(String): void
++ setLastName(String): void
++ setMembershipType(MEMBERSHIP_TYPE): void
++ getId(): int
++ getFirstName(): String
++ getLastName(): String
++ getMembershipType(): MEMBERSHIP_TYPE
++ toString(): String
++ equals(Object): boolean
++ hashCode(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>522</y><w>192</w><h>234</h></coordinates><panel_attributes>/&lt;&lt;enum&gt;&gt;/
+MEMBERSHIP_TYPE
+--
+_+ GOLD(String, double, String, String, int)_
+_+ PLANTINUM(String, double, String, String, int)_
+_+ DIAMOND(String, double, String, String, int)_
+_+ GLOBAL(String, double, String, String, int)_
+--
+- name: String
+- price: double
+- billingFrequency: String
+- accessLevel: String
+- productCode: int
+--
+- MEMBERSHIP_TYPE(String, double, String, String, int)
+- setName(String): void
+- setPrice(double): void
+- setBillingFrequency(String): void
+- setAccessLevel(String): void
+- setProductCode(String): void
++ getName(): String
++ getPrice(): double
++ getBillingFrequency(): String
++ getAccessLevel(): String
++ getProductCode(): int
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>954</x><y>552</y><w>150</w><h>168</h></coordinates><panel_attributes>/&lt;&lt;enum&gt;&gt;/
+TYPE_OF_CURRENCY
+--
+_+ USD(String, char, String)_
+_+ EUR(String, char, String)_
+_+ GBP(String, char, String)_
+--
+- denomination: String
+- symbol: char
+- countryProvenance: String
+--
+- TYPE_OF_CURRENCY(String, char, String)
+- setDenomination(String): void
+- setSymbol(char): void
+- setCountryProvenance(String): void
++ getDenomination(): String
++ getSymbol(): char
++ getCountryProvenance(): String
++ toString(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1134</x><y>558</y><w>156</w><h>162</h></coordinates><panel_attributes>bg=red
+Package - cli.db_connections</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>282</x><y>522</y><w>114</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;50;10;10;170;10;170;50</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>612</y><w>60</w><h>18</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1146</x><y>600</y><w>120</w><h>84</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+MySQLConnection
+--
+
+--
+_+ getDBConnection(): Connection_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>438</x><y>660</y><w>420</w><h>162</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>680;160;680;250;10;250;10;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1122</x><y>78</y><w>150</w><h>216</h></coordinates><panel_attributes>Package - java.util</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1134</x><y>336</y><w>198</w><h>144</h></coordinates><panel_attributes>Package - java.sql</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1236</x><y>360</y><w>84</w><h>42</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+DriverManager
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1140</x><y>420</y><w>84</w><h>42</h></coordinates><panel_attributes>/&lt;&lt;interface&gt;&gt;/
+Connection
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>102</y><w>84</w><h>36</h></coordinates><panel_attributes>/&lt;&lt;interface&gt;&gt;/
+List
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>192</y><w>84</w><h>36</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+Scanner
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>240</y><w>84</w><h>36</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+Objects
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>708</x><y>264</y><w>456</w><h>282</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>740;10;680;10;680;350;10;350;10;450</additional_attributes></element><element><id>Relation</id><coordinates><x>642</x><y>744</y><w>198</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+- membershipType</panel_attributes><additional_attributes>300;20;300;40;10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>162</x><y>12</y><w>1008</w><h>786</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>1660;160;1660;10;10;10;10;1290;420;1290;420;1090</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>150</y><w>84</w><h>36</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+ArrayList
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1140</x><y>360</y><w>84</w><h>42</h></coordinates><panel_attributes>/&lt;&lt;class&gt;&gt;/
+DriverManager
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1236</x><y>420</y><w>84</w><h>42</h></coordinates><panel_attributes>/&lt;&lt;interface&gt;&gt;/
+Connection
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>366</y><w>678</w><h>198</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>1110;10;1060;10;1060;210;10;210;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>660</y><w>750</w><h>186</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>1230;40;1230;290;10;290;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>30</y><w>354</w><h>96</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>570;80;570;10;10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>384</x><y>90</y><w>306</w><h>474</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>40;770;40;660;10;660;10;10;490;10;490;90</additional_attributes></element><element><id>Relation</id><coordinates><x>384</x><y>90</y><w>306</w><h>426</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>450;690;450;620;10;620;10;10;490;10;490;90</additional_attributes></element><element><id>Relation</id><coordinates><x>846</x><y>126</y><w>54</w><h>18</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>402</y><w>96</w><h>132</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>140;200;140;90;10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>420</y><w>258</w><h>144</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>410;220;410;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>234</y><w>60</w><h>102</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110;80;110;80;150</additional_attributes></element></diagram>
